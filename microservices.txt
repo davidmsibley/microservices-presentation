@@ -1,0 +1,14 @@
+https://github.com/UW-Madison-DoIT/rest-proxy
+https://github.com/UW-Madison-DoIT/KeyValueStore
+https://github.com/UW-Madison-DoIT/lti-proxy
+https://github.com/UW-Madison-DoIT/personalizedRedirection
+https://github.com/UW-Madison-DoIT/rssToJson
+https://github.com/UW-Madison-DoIT/widget-creator
+
+
+git@github.com:UW-Madison-DoIT/rest-proxy.git
+git@github.com:UW-Madison-DoIT/KeyValueStore.git
+git@github.com:UW-Madison-DoIT/lti-proxy.git
+git@github.com:UW-Madison-DoIT/personalizedRedirection.git
+git@github.com:UW-Madison-DoIT/rssToJson.git
+git@github.com:UW-Madison-DoIT/widget-creator.git
