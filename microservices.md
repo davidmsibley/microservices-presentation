@@ -18,7 +18,7 @@ to use the backend uPortal in different ways than traditional uPortal users.
 * [Microservices on Wikipedia]
 
 ## Overview of Microservices by MyUW
-
+---
 ### [Key Value Store]
 ##### What it does:
 > A separate service to enable key value storage for MyUW applications
@@ -26,6 +26,7 @@ to use the backend uPortal in different ways than traditional uPortal users.
 ##### What we use it for:
 * [Find Usages][TODO]
 
+---
 ### [Rest Proxy]
 ##### What it does:
 > A Simple server side REST proxy service written in Groovy
@@ -37,6 +38,7 @@ browser side security issues.
 ##### What we use it for:
 * [Find Usages][TODO]
 
+---
 ### [Personalized Redirection]
 ##### What it does:
 > A service to provide a customized URL based on the identity of the user.
@@ -44,6 +46,7 @@ browser side security issues.
 ##### What we use it for:
 * [Find Usages][TODO]
 
+---
 ### [LTI Proxy]
 ##### What it does:
 > A configurable service to sign LTI parameters are return form data for your application
@@ -51,6 +54,7 @@ browser side security issues.
 ##### What we use it for:
 * [Find Usages][TODO]
 
+---
 ### [RSS to JSON]
 [Documentation](https://uw-madison-doit.github.io/rssToJson/)
 ##### What it does:
@@ -59,12 +63,14 @@ browser side security issues.
 ##### What we use it for:
 * [Find Usages][TODO]
 
+---
 ### [Widget Creator]
 ##### What it does:
 > Web-based tool supporting developing widgets for uPortal-home.
 
 ##### What we use it for:
 * [Find Usages][TODO]
+---
 
 ## Demo
 * Pull down some microservices and create a widget that uses them
@@ -86,7 +92,12 @@ browser side security issues.
   * [Insert Horror Story Here][TODO]
 
 ## Future steps
+* [Strangle vine][TODO]?
 
+## Discussion
+* What types of problems are you running in to?
+* Are there microservices that you'd like to use?
+* Are there microservices you think we could use?
 
 <!-- MyUW Github Repositories -->
 [Rest Proxy]: https://github.com/UW-Madison-DoIT/rest-proxy (Rest Proxy Github Repository)
