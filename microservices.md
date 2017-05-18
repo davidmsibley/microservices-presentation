@@ -31,7 +31,8 @@ to use the backend uPortal in different ways than traditional uPortal users.
 > A Simple server side REST proxy service written in Groovy
 
 Cross-Domain calls are tricky and filled with potential security issues. This
-Allows you to
+allows you to control the remote resources on the server side, while avoiding
+browser side security issues.
 
 ##### What we use it for:
 * [Find Usages][TODO]
