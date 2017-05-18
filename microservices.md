@@ -18,31 +18,55 @@ to use the backend uPortal in different ways than traditional uPortal users.
 * [Microservices on Wikipedia]
 
 ## Overview of Microservices by MyUW
+
 ### [Key Value Store]
 ##### What it does:
+> A separate service to enable key value storage for MyUW applications
+
 ##### What we use it for:
+* [Find Usages][TODO]
 
 ### [Rest Proxy]
 ##### What it does:
-##### What we use it for:
+> A Simple server side REST proxy service written in Groovy
 
-### [Personalized Redirector]
-##### What it does:
+Cross-Domain calls are tricky and filled with potential security issues. This
+Allows you to
+
 ##### What we use it for:
+* [Find Usages][TODO]
+
+### [Personalized Redirection]
+##### What it does:
+> A service to provide a customized URL based on the identity of the user.
+
+##### What we use it for:
+* [Find Usages][TODO]
 
 ### [LTI Proxy]
 ##### What it does:
+> A configurable service to sign LTI parameters are return form data for your application
+
 ##### What we use it for:
+* [Find Usages][TODO]
 
 ### [RSS to JSON]
+[Documentation](https://uw-madison-doit.github.io/rssToJson/)
 ##### What it does:
+> Microservice for converting RSS feeds to JSON.
+
 ##### What we use it for:
+* [Find Usages][TODO]
 
 ### [Widget Creator]
 ##### What it does:
+> Web-based tool supporting developing widgets for uPortal-home.
+
 ##### What we use it for:
+* [Find Usages][TODO]
 
 ## Demo
+* Pull down some microservices and create a widget that uses them
 
 ## MyUW problems solved with Microservices
 * Move toward a [vanilla uPortal instance][TODO]
@@ -67,7 +91,7 @@ to use the backend uPortal in different ways than traditional uPortal users.
 [Rest Proxy]: https://github.com/UW-Madison-DoIT/rest-proxy (Rest Proxy Github Repository)
 [Key Value Store]: https://github.com/UW-Madison-DoIT/KeyValueStore (Key Value Store Github Repository)
 [LTI Proxy]: https://github.com/UW-Madison-DoIT/lti-proxy (LTI Proxy Github Repository)
-[Personalized Redirector]:  https://github.com/UW-Madison-DoIT/personalizedRedirection (Personalized Redirector Github Repository)
+[Personalized Redirection]:  https://github.com/UW-Madison-DoIT/personalizedRedirection (Personalized Redirection Github Repository)
 [RSS to JSON]: https://github.com/UW-Madison-DoIT/rssToJson (RSS to JSON Github Repository)
 [Widget Creator]: https://github.com/UW-Madison-DoIT/widget-creator (Widget Creator Github Repository)
 
