@@ -25,23 +25,39 @@ us to use the backend uPortal in different ways than traditional uPortal users.
 
 * ### [Martin Fowler's Microservices]
   * ##### Monoliths versus Microservices
+
     ![Monoliths and Microservices]
+
   * ##### Componentization via Services
     * not via Libraries
+
   * ##### Organized around Business Capabilities
     * not around Technology Layers
-    ![Conway's Law in Action]
+
+      ![Conways Law in Action]
+
     * instead:
-    ![Functional Staff Organization]
+
+      ![Functional Staff Organization]
+
   * ##### Products not Projects
+
   * ##### Smart Endpoints and Dumb pipes
+
   * ##### Decentralized Governance
+
   * ##### Decentralized Data Management
+
     ![Decentralized Data]
+
   * ##### Infrastructure Automation
+
     ![Basic Build Pipeline]
+
     ![Micro Deployment]
+
   * ##### Design for Failure
+
   * ##### Evolutionary Design
 
 
@@ -144,7 +160,7 @@ us to use the backend uPortal in different ways than traditional uPortal users.
 
 <!-- Images -->
 [Monoliths and Microservices]: https://martinfowler.com/articles/microservices/images/sketch.png (Monoliths and Microservices)
-[Conway's Law In Action]: https://martinfowler.com/articles/microservices/images/conways-law.png (Conway's Law in Action)
+[Conways Law In Action]: https://martinfowler.com/articles/microservices/images/conways-law.png (Conway's Law in Action)
 [Functional Staff Organization]: https://martinfowler.com/articles/microservices/images/PreferFunctionalStaffOrganization.png (Service boundaries reinforced by team boundaries)
 [Decentralized Data]: https://martinfowler.com/articles/microservices/images/decentralised-data.png (Decentralized Data Management)
 [Basic Build Pipeline]: https://martinfowler.com/articles/microservices/images/basic-pipeline.png (Basic Build Pipeline)
