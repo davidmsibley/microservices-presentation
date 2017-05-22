@@ -28,6 +28,13 @@ us to use the backend uPortal in different ways than traditional uPortal users.
 
     ![Monoliths and Microservices]
 
+    * Monoliths:
+      * Small changes require entire project to be rebuilt and deployed
+      * Code tends to quietly become more coupled over time
+    * Microservices:
+      * Small changes require only containing module to be rebuilt and deployed
+      * Coupling is readily apparent, and deincentivized
+
   * #### Componentization via Services
     * not via Libraries
 
@@ -114,9 +121,6 @@ us to use the backend uPortal in different ways than traditional uPortal users.
   * ##### What we use it for:
     * [Find Usages][TODO]
 ---
-
-## Demo
-* Pull down some microservices and create a widget that uses them
 
 ## MyUW problems solved with Microservices
 * Move toward a [vanilla uPortal instance][TODO]
