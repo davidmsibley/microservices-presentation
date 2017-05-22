@@ -24,14 +24,14 @@ us to use the backend uPortal in different ways than traditional uPortal users.
   * Scalable Architecture
 
 * ### [Martin Fowler's Microservices]
-  * ##### Monoliths versus Microservices
+  * #### Monoliths versus Microservices
 
     ![Monoliths and Microservices]
 
-  * ##### Componentization via Services
+  * #### Componentization via Services
     * not via Libraries
 
-  * ##### Organized around Business Capabilities
+  * #### Organized around Business Capabilities
     * not around Technology Layers
 
       ![Conways Law in Action]
@@ -40,25 +40,25 @@ us to use the backend uPortal in different ways than traditional uPortal users.
 
       ![Functional Staff Organization]
 
-  * ##### Products not Projects
+  * #### Products not Projects
 
-  * ##### Smart Endpoints and Dumb pipes
+  * #### Smart Endpoints and Dumb pipes
 
-  * ##### Decentralized Governance
+  * #### Decentralized Governance
 
-  * ##### Decentralized Data Management
+  * #### Decentralized Data Management
 
     ![Decentralized Data]
 
-  * ##### Infrastructure Automation
+  * #### Infrastructure Automation
 
     ![Basic Build Pipeline]
 
     ![Micro Deployment]
 
-  * ##### Design for Failure
+  * #### Design for Failure
 
-  * ##### Evolutionary Design
+  * #### Evolutionary Design
 
 
 ## Overview of Microservices by MyUW
