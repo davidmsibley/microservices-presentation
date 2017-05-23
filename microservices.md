@@ -31,6 +31,7 @@
       * Small changes require only containing module to be rebuilt and deployed
       * Coupling is readily apparent, and deincentivized
 
+  ### Characteristics of a Microservices Architecture
   * #### Componentization via Services
     * not via Libraries
 
@@ -85,16 +86,16 @@
     * Design to maximize independent replacement and upgradeability
     * Expect services to be scrapped or replaced rather than evolved
 
-  > The Guardian website is a good example of an application that was designed
-  > and built as a monolith, but has been evolving in a microservice direction.
-  > The monolith still is the core of the website, but they prefer to add new
-  > features by building microservices that use the monolith's API.
+    > The Guardian website is a good example of an application that was designed and built as a monolith, but has been evolving in a microservice direction. The monolith still is the core of the website, but they prefer to add new features by building microservices that use the monolith's API.
 
 ## Goals of MyUW approach
 * Move toward a [vanilla uPortal instance][Example: uPortal 5]
   * Componentization via Services
+  * Evolutionary Design
 * Mitigate risk of one tenant [breaking things for everyone][Example: Gatekeeping]
+  * Organized around Business Capabilities
   * Infrastructure Automation
+  * Design for Failure
 * Easier to adopt [contributions][Example: Apereo Incubation]
   * Decentralized Governance
 
