@@ -19,7 +19,7 @@
   * Scalable Architecture
 
 * ### [Martin Fowler's Microservices][Martin Fowler's Microservices]
-  * All content in this section ripped from martinfowler.com and paraphrased.
+  * All content in this section is taken from martinfowler.com and paraphrased.
   * #### Monoliths versus Microservices
 
     ![Monoliths and Microservices]
@@ -100,57 +100,74 @@
   * Decentralized Governance
 
 ## Overview of Microservices by MyUW
-* ### [Key Value Store][Key Value Store]
-  * ##### What it does:
-    > A separate service to enable key value storage for MyUW applications
+### [Key Value Store][Key Value Store]
+> A separate service to enable key value storage for MyUW applications
 
-  * ##### What we use it for:
-    * [Find Usages][TODO]
+* ##### What it does:
+  * It provides a user-scoped server-side storage location for valid JSON objects and arrays.
 
----
-* ### [Rest Proxy][Rest Proxy]
-  * ##### What it does:
-    > A Simple server side REST proxy service written in Groovy
-
-    Cross-Domain calls are tricky and filled with potential security issues.
-    This allows you to control the remote resources on the server side, while
-    avoiding browser side security issues.
-
-  * ##### What we use it for:
-    * [Find Usages][TODO]
+* ##### What we use it for:
+  * [Features][Usage: KV Features]
+  * [Notifications][Usage: KV Notifications]
+  * [Announcements][Usage: KV Announcements]
+  * [Widget User Preferences][Usage: KV Widget User Prefs]
 
 ---
-* ### [Personalized Redirection][Personalized Redirection]
-  * ##### What it does:
-    > A service to provide a customized URL based on the identity of the user.
+### [Rest Proxy][Rest Proxy]
+> A Simple server side REST proxy service written in Groovy
 
-  * ##### What we use it for:
-    * [Find Usages][TODO]
+* ##### What it does:
+  Cross-Domain calls are tricky and filled with potential security issues.
+  This allows you to control the remote resources on the server side, while
+  avoiding browser side security issues.
+  This also passes through user details, allowing for personalized proxying.
+
+* ##### What we use it for:
+  * [Wiscard API Call][Usage: Proxy Wiscard]
+  * [Directory Search][Usage: Proxy Directory Search]
+  * [Scholarship Lookup][Usage: Proxy Scholarship]
 
 ---
-* ### [LTI Proxy][LTI Proxy]
-  * ##### What it does:
-    > A configurable service to sign LTI parameters are return form data for your application
+### [Personalized Redirection][Personalized Redirection]
+> A service to provide a customized URL based on the identity of the user.
 
-  * ##### What we use it for:
-    * [Find Usages][TODO]
+* ##### What it does:
+  This will provide a personalized redirect url for a user specified in a CSV file on the classpath.
+
+* ##### What we use it for:
+  * [National Survey of Student Engagement][Usage: Redirect NSSE]
 
 ---
-* ### [RSS to JSON][RSS to JSON]
+### [LTI Proxy][LTI Proxy]
+> A configurable service to sign LTI parameters are return form data for your application
+
+* ##### What it does:
+  Configures a form post url for authenicating to a remote LTI service. The configured URL can be returned to the user, or the user can be redirected by the microservice.
+
+* ##### What we use it for:
+  * [Blackboard Ultra][Usage: LTI Blackboard Ultra]
+
+---
+### [RSS to JSON][RSS to JSON]
+> Microservice for converting RSS feeds to JSON.
+
   [Documentation](https://uw-madison-doit.github.io/rssToJson/)
-  * ##### What it does:
-    > Microservice for converting RSS feeds to JSON.
 
-  * ##### What we use it for:
-    * [Find Usages][TODO]
+* ##### What it does:
+  This takes an external xml RSS feed url, and returns the contents of that url formatted in JSON. Only works on valid RSS feeds.
+
+* ##### What we use it for:
+  * [RSS Feed Widget Type][Usage: RSS Feed Widget Type]
 
 ---
-* ### [Widget Creator][Widget Creator]
-  * ##### What it does:
-    > Web-based tool supporting developing widgets for uPortal-home.
+### [Widget Creator][Widget Creator]
+> Web-based tool supporting developing widgets for uPortal-home.
 
-  * ##### What we use it for:
-    * [Find Usages][TODO]
+* ##### What it does:
+  This full uPortal app helps users mock out the look and functionality of uPortal-home widgets in the browser.
+
+* ##### What we use it for:
+  * [Creating Widgets!][Usage: Widget Creator]
 ---
 
 ## Issues to keep in mind when using Microservices
@@ -167,9 +184,13 @@
   * Keep in mind the problem you're trying to solve.
   * [Insert Horror Story Here][TODO]
 
-## Future steps
-* [Docker][TODO] and [Kubernetes][TODO]
-* [Strangle vine][TODO]?
+## Related
+* #### [Docker][Docker]
+
+* #### [Kubernetes][Kubernetes]
+  > Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
+
+* #### [Strangle Vine][Strangler Vine]?
 
 ## Discussion
 * How do you see microservices evolving the way you work with uPortal?
@@ -185,6 +206,9 @@
 <!-- External Links -->
 [Martin Fowler's Microservices]: https://martinfowler.com/articles/microservices.html (Martin Fowler's Microservices)
 [Microservices on Wikipedia]: https://en.wikipedia.org/wiki/Microservices (Wikipedia: Microservices)
+[Docker]: https://www.docker.com/ (Docker)
+[Kubernetes]: https://kubernetes.io/ (Kubernetes homepage)
+[Strangler Vine]: https://www.martinfowler.com/bliki/StranglerApplication.html (Martin Fowler's StranglerApplication)
 
 <!-- Images -->
 [Monoliths and Microservices]: https://martinfowler.com/articles/microservices/images/sketch.png (Monoliths and Microservices)
@@ -206,6 +230,18 @@
 [Example: Gatekeeping]: # ()
 [Example: Apereo Incubation]: # ()
 
+<!-- Usages -->
+[Usage: KV Features]: # ()
+[Usage: KV Notifications]: # ()
+[Usage: KV Announcements]: # ()
+[Usage: KV Widget User Prefs]: # ()
+[Usage: Proxy Wiscard]: # ()
+[Usage: Proxy Directory Search]: # ()
+[Usage: Proxy Scholarship]: # ()
+[Usage: Redirect NSSE]: # ()
+[Usage: LTI Blackboard Ultra]: # ()
+[Usage: RSS Feed Widget Type]: # ()
+[Usage: Widget Creator]: # ()
 
 <!-- TODO Marker -->
 [TODO]: # (Elaborate on this!)
