@@ -1,20 +1,15 @@
 # Microservices
 
 ## Problems
-* [Monolithic backend][TODO] that you don't completely control.
-  * Sometimes that can be social and sometimes that can be technical.
-* [Multi-tenant system][TODO] applies stress to the [All-Or-Nothing][TODO] architecture.
-  * One bad (or inattentive) actor can ruin it for everyone.
-
-## Goals of MyUW approach
-* Need to add server side functionality that [isn't applicable][TODO] to all users of backend.
-* Need to [patch functionality][TODO] without forking the backend.
-
-Our microservices approach has typically been to add functionality that allows
-us to use the backend uPortal in different ways than traditional uPortal users.
+* [Monolithic backend][Example: uPortal] that you don't completely control.
+  * Sometimes that can be [social][Example: Dev List] and sometimes that can be [technical][Example: Pull Request].
+  * Want to avoid forking:
+    * Forks get out of date, and become [productivity sinks][Example: Contribute Back to Master].
+* [Multi-tenant system][Example: MyUW Apps] applies stress to the [All-Or-Nothing][Example: Build Ear] architecture.
+  * One bad (or [inattentive][Example: Missing Tag]) actor can ruin it for everyone.
 
 ## What are Microservices?
-* ### tl;dr: [Microservices on Wikipedia]
+* ### tl;dr: [Wikipedia][Microservices on Wikipedia]
   Processes that communicate with each other over a network
 
   Goals:
@@ -23,7 +18,8 @@ us to use the backend uPortal in different ways than traditional uPortal users.
   * Enables Continuous Delivery
   * Scalable Architecture
 
-* ### [Martin Fowler's Microservices]
+* ### [Martin Fowler's Microservices][Martin Fowler's Microservices]
+  * All content in this section ripped from martinfowler.com and paraphrased.
   * #### Monoliths versus Microservices
 
     ![Monoliths and Microservices]
@@ -48,28 +44,59 @@ us to use the backend uPortal in different ways than traditional uPortal users.
       ![Functional Staff Organization]
 
   * #### Products not Projects
+    * Amazon's "You build it, you run it"
+    * Instead of bringing a product to "completion" and handing it off to a maintenance team
+    * Shrink the feedback use between developers and users
 
   * #### Smart Endpoints and Dumb pipes
+    * Separate the Business Logic from the Message Routing
+    * Using Choreography or Orchestration
 
   * #### Decentralized Governance
+    * Favor internal open source model over formal guidance
+    * Developers focus on making tools that others can use to solve similar
+      problems.
+    * Build out the service only to the point where it satisfies the contract
 
   * #### Decentralized Data Management
+    * Let each Microservice manage its own data.
 
-    ![Decentralized Data]
+      ![Decentralized Data]
+
+    * Make the separations of concerns explicit at the service level, not the database level.
 
   * #### Infrastructure Automation
+    * Continuous Integration focuses on automating the acceptance of code being merged into the code base
+    * Continuous Delivery focuses on automating the Migration of code to the production environment.
+      * "Make Deployment Boring"
 
-    ![Basic Build Pipeline]
+      ![Basic Build Pipeline]
 
-    ![Micro Deployment]
+    * Separating microservices out and formalizing their API contract allows us
+      to write targeted "Unitized" Integration tests.
+
+      ![Micro Deployment]
 
   * #### Design for Failure
+    * By separating out components, we're adding more area for things to fail
+    * It's essential to constantly reflect on how service failures affect the user experience
 
   * #### Evolutionary Design
+    * Independent replacement and upgradeability
+    * Expect services to be scrapped rather than evolved
 
+  > The Guardian website is a good example of an application that was designed
+  > and built as a monolith, but has been evolving in a microservice direction.
+  > The monolith still is the core of the website, but they prefer to add new
+  > features by building microservices that use the monolith's API.
+
+## Goals of MyUW approach
+* Move toward a [vanilla uPortal instance][Example: uPortal 5]
+* Mitigate risk of one tenant [breaking things for everyone][Example: Gatekeeping]
+* Easier to adopt [contributions][Example: Apereo Incubation]
 
 ## Overview of Microservices by MyUW
-* ### [Key Value Store]
+* ### [Key Value Store][Key Value Store]
   * ##### What it does:
     > A separate service to enable key value storage for MyUW applications
 
@@ -77,7 +104,7 @@ us to use the backend uPortal in different ways than traditional uPortal users.
     * [Find Usages][TODO]
 
 ---
-* ### [Rest Proxy]
+* ### [Rest Proxy][Rest Proxy]
   * ##### What it does:
     > A Simple server side REST proxy service written in Groovy
 
@@ -89,7 +116,7 @@ us to use the backend uPortal in different ways than traditional uPortal users.
     * [Find Usages][TODO]
 
 ---
-* ### [Personalized Redirection]
+* ### [Personalized Redirection][Personalized Redirection]
   * ##### What it does:
     > A service to provide a customized URL based on the identity of the user.
 
@@ -97,7 +124,7 @@ us to use the backend uPortal in different ways than traditional uPortal users.
     * [Find Usages][TODO]
 
 ---
-* ### [LTI Proxy]
+* ### [LTI Proxy][LTI Proxy]
   * ##### What it does:
     > A configurable service to sign LTI parameters are return form data for your application
 
@@ -105,7 +132,7 @@ us to use the backend uPortal in different ways than traditional uPortal users.
     * [Find Usages][TODO]
 
 ---
-* ### [RSS to JSON]
+* ### [RSS to JSON][RSS to JSON]
   [Documentation](https://uw-madison-doit.github.io/rssToJson/)
   * ##### What it does:
     > Microservice for converting RSS feeds to JSON.
@@ -114,7 +141,7 @@ us to use the backend uPortal in different ways than traditional uPortal users.
     * [Find Usages][TODO]
 
 ---
-* ### [Widget Creator]
+* ### [Widget Creator][Widget Creator]
   * ##### What it does:
     > Web-based tool supporting developing widgets for uPortal-home.
 
@@ -122,33 +149,26 @@ us to use the backend uPortal in different ways than traditional uPortal users.
     * [Find Usages][TODO]
 ---
 
-## MyUW problems solved with Microservices
-* Move toward a [vanilla uPortal instance][TODO]
-* Mitigate risk of one tenant breaking things for everyone
-* Easier to adopt contributions
-
 ## Issues to keep in mind when using Microservices
-* Versions and Regressions
+* #### Versions and Regressions
   * You lose ability to easily know who depends on the microservice
   * Backwards compatibility is key
   * Don't get attached to an implementation
     * often it's better to write a whole new microservice than to change the API
       of an existing microservice.
-* How many Microservices does it take to screw in a light bulb?
+* #### How many Microservices does it take to screw in a light bulb?
   * Clean layers of abstraction are essential
   * Shouldn't need to pull down 12 microservices to work on one thing.
-* Microservices for the sake of Microservices
+* #### Microservices for the sake of Microservices
   * Keep in mind the problem you're trying to solve.
   * [Insert Horror Story Here][TODO]
 
 ## Future steps
-* [Kubernetes][TODO]
+* [Docker][TODO] and [Kubernetes][TODO]
 * [Strangle vine][TODO]?
 
 ## Discussion
-* What types of problems are you running in to?
-* Are there microservices that you'd like to use?
-* Are there microservices you think we could use?
+* How do you see microservices evolving the way you work with uPortal?
 
 <!-- MyUW Github Repositories -->
 [Rest Proxy]: https://github.com/UW-Madison-DoIT/rest-proxy (Rest Proxy Github Repository)
@@ -169,6 +189,18 @@ us to use the backend uPortal in different ways than traditional uPortal users.
 [Decentralized Data]: https://martinfowler.com/articles/microservices/images/decentralised-data.png (Decentralized Data Management)
 [Basic Build Pipeline]: https://martinfowler.com/articles/microservices/images/basic-pipeline.png (Basic Build Pipeline)
 [Micro Deployment]: https://martinfowler.com/articles/microservices/images/micro-deployment.png (Micro Deployment)
+
+<!-- Examples -->
+[Example: uPortal]: # ()
+[Example: Dev List]: # ()
+[Example: Pull Request]: # ()
+[Example: Contribute Back to Master]: # ()
+[Example: MyUW Apps]: # ()
+[Example: Build Ear]: # ()
+[Example: Missing Tag]: # ()
+[Example: uPortal 5]: # ()
+[Example: Gatekeeping]: # ()
+[Example: Apereo Incubation]: # ()
 
 
 <!-- TODO Marker -->
