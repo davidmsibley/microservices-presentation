@@ -50,7 +50,7 @@
 
   * #### Smart Endpoints and Dumb pipes
     * Separate the Business Logic from the Message Routing
-    * Using Choreography or Orchestration
+    * Using a decoupled module for Choreography or Orchestration
 
   * #### Decentralized Governance
     * Favor internal open source model over formal guidance
@@ -63,7 +63,7 @@
 
       ![Decentralized Data]
 
-    * Make the separations of concerns explicit at the service level, not the database level.
+    * Make the separation of concerns explicit at the service level, not the database level.
 
   * #### Infrastructure Automation
     * Continuous Integration focuses on automating the acceptance of code being merged into the code base
@@ -78,12 +78,12 @@
       ![Micro Deployment]
 
   * #### Design for Failure
-    * By separating out components, we're adding more area for things to fail
-    * It's essential to constantly reflect on how service failures affect the user experience
+    * By separating out components across a network, we're adding more area for things to fail
+    * It's essential for development teams to constantly reflect on how service failures affect the user experience
 
   * #### Evolutionary Design
-    * Independent replacement and upgradeability
-    * Expect services to be scrapped rather than evolved
+    * Design to maximize independent replacement and upgradeability
+    * Expect services to be scrapped or replaced rather than evolved
 
   > The Guardian website is a good example of an application that was designed
   > and built as a monolith, but has been evolving in a microservice direction.
@@ -92,8 +92,11 @@
 
 ## Goals of MyUW approach
 * Move toward a [vanilla uPortal instance][Example: uPortal 5]
+  * Componentization via Services
 * Mitigate risk of one tenant [breaking things for everyone][Example: Gatekeeping]
+  * Infrastructure Automation
 * Easier to adopt [contributions][Example: Apereo Incubation]
+  * Decentralized Governance
 
 ## Overview of Microservices by MyUW
 * ### [Key Value Store][Key Value Store]
