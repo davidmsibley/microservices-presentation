@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Microservices</title>
+		<style>
+			img {
+  width: 500px;
+}
+
+		</style>
+	</head>
+	<body>
+		<textarea id="source">
+class: center, middle, main-title
+
+# Microservices
+
+---
+## Problems
+
+- [Monolithic backend](https://github.com/Jasig/uPortal "uPortal Github Page") that you don&#39;t completely control.
+ - Sometimes that can be [social](https://groups.google.com/a/apereo.org/forum/#!forum/uportal-dev "uPortal Developers Email List") and sometimes that can be [technical](https://github.com/Jasig/uPortal/pull/883#issuecomment-301067785 "Default Behavior Breaking Pull Request").
+ - Want to avoid [forking](https://git.doit.wisc.edu/myuw/uPortal "MyUW uPortal GitLab Page"):
+  - Forks get out of date, and become [productivity sinks](https://jira.doit.wisc.edu/jira/browse/MUMUP-2929 "Take something that works and put it over there").
+- [Multi-tenant system](https://my.wisc.edu/web/apps "There&#39;s a lot of them") applies stress to the [All-Or-Nothing](https://tools.my.wisc.edu/jenkins/job/docker-activate-test/lastFailedBuild/ "whoops.") architecture.
+ - One bad (or inattentive) actor can ruin it for everyone.
+
+
+---
+## What are Microservices?
+
+-  ---
+### tl;dr: [Wikipedia][Microservices on Wikipedia]
+Processes that communicate with each other over a network
+Goals:
+ - Independently Deployable
+ - Modular Structure
+ - Enables Continuous Delivery
+ - Scalable Architecture
+-  ---
+### [Martin Fowler's Microservices][Martin Fowler's Microservices]
+ - All content in this section is taken from martinfowler.com and paraphrased.
+ - #### Monoliths versus Microservices
+![Monoliths and Microservices](https://martinfowler.com/articles/microservices/images/sketch.png "Monoliths and Microservices")
+  - Monoliths:
+   - Small changes require entire project to be rebuilt and deployed
+   - Code tends to quietly become more coupled over time
+  - Microservices:
+   - Small changes require only containing module to be rebuilt and deployed
+   - Coupling is readily apparent, and deincentivized
+ ---
+### Characteristics of a Microservices Architecture
+ - #### Componentization via Services
+  - not via Libraries
+ - #### Organized around Business Capabilities
+  - not around Technology Layers
+![Conways Law in Action](https://martinfowler.com/articles/microservices/images/conways-law.png "Conway&#39;s Law in Action")
+  - instead:
+![Functional Staff Organization](https://martinfowler.com/articles/microservices/images/PreferFunctionalStaffOrganization.png "Service boundaries reinforced by team boundaries")
+ - #### Products not Projects
+  - Amazon&#39;s &quot;You build it, you run it&quot;
+  - Instead of bringing a product to &quot;completion&quot; and handing it off to a maintenance team
+  - Shrink the feedback use between developers and users
+ - #### Smart Endpoints and Dumb pipes
+  - Separate the Business Logic from the Message Routing
+  - Using a decoupled module for Choreography or Orchestration
+ - #### Decentralized Governance
+  - Favor internal open source model over formal guidance
+  - Developers focus on making tools that others can use to solve similar
+problems.
+  - Build out the service only to the point where it satisfies the contract
+ - #### Decentralized Data Management
+  - Let each Microservice manage its own data.
+![Decentralized Data](https://martinfowler.com/articles/microservices/images/decentralised-data.png "Decentralized Data Management")
+  - Make the separation of concerns explicit at the service level, not the database level.
+ - #### Infrastructure Automation
+  - Continuous Integration focuses on automating the acceptance of code being merged into the code base
+  - Continuous Delivery focuses on automating the Migration of code to the production environment.
+   - &quot;Make Deployment Boring&quot;
+![Basic Build Pipeline](https://martinfowler.com/articles/microservices/images/basic-pipeline.png "Basic Build Pipeline")
+  - Separating microservices out and formalizing their API contract allows us
+to write targeted &quot;Unitized&quot; Integration tests.
+![Micro Deployment](https://martinfowler.com/articles/microservices/images/micro-deployment.png "Micro Deployment")
+ - #### Design for Failure
+  - By separating out components across a network, we&#39;re adding more area for things to fail
+  - It&#39;s essential for development teams to constantly reflect on how service failures affect the user experience
+ - #### Evolutionary Design
+  - Design to maximize independent replacement and upgradeability
+  - Expect services to be scrapped or replaced rather than evolved
+> The Guardian website is a good example of an application that was designed and built as a monolith, but has been evolving in a microservice direction. The monolith still is the core of the website, but they prefer to add new features by building microservices that use the monolith&#39;s API.
+
+
+---
+## Goals of MyUW approach
+
+- Move toward a [vanilla uPortal instance](https://jasig.github.io/uPortal/ "uPortal Documentation")
+ - Componentization via Services
+ - Evolutionary Design
+- Mitigate risk of one tenant [breaking things for everyone](https://git.doit.wisc.edu/myuw-overlay/CampusCourseGuidePortlet/merge_requests/20 "But who watches the Watchmen?")
+ - Organized around Business Capabilities
+ - Infrastructure Automation
+ - Design for Failure
+- Easier to adopt [contributions](https://www.apereo.org/incubation "The Warm and Fuzzies")
+ - Decentralized Governance
+
+
+---
+class: center, middle, title
+
+## Overview of Microservices by MyUW
+
+---
+### [Key Value Store][Key Value Store]
+> A separate service to enable key value storage for MyUW applications
+
+
+- ##### What it does:
+ - It provides a user-scoped server-side storage location for valid JSON objects and arrays.
+- ##### What we use it for:
+ - [Features](https://github.com/UW-Madison-DoIT/uw-frame/tree/master/uw-frame-components/portal/features "Features Module Github")
+ - [Notifications](https://my.wisc.edu/web/notifications "MyUW Notifications")
+ - [Announcements](https://github.com/UW-Madison-DoIT/uw-frame/blob/master/uw-frame-components/portal/features/services.js#L83 "Announcements Usage Source Code")
+ - [Widget User Preferences](https://github.com/UW-Madison-DoIT/uw-frame/blob/master/uw-frame-components/portal/widgets/controllers.js#L408 "Weather Widget User Preferences")
+
+
+---
+### [Rest Proxy][Rest Proxy]
+> A Simple server side REST proxy service written in Groovy
+
+
+- ##### What it does:
+Cross-Domain calls are tricky and filled with potential security issues.
+This allows you to control the remote resources on the server side, while
+avoiding browser side security issues.
+This also passes through user details, allowing for personalized proxying.
+- ##### What we use it for:
+ - Wiscard
+  - [Wiscard API Call](https://my.wisc.edu/web/api/proxy/wiscard "Wiscard API Call")
+  - [Wiscard Widget](https://my.wisc.edu/web/apps/details/wiscard-balance "Wiscard Widget")
+ - Directory
+  - [Directory API Call](https://my.wisc.edu/web/api/proxy/wiscdirectory/?name=sibley "Oh hey, that&#39;s me!")
+  - [MyUW Search](https://my.wisc.edu/web/apps/search/sibley "I&#39;ve never met those other people")
+
+
+---
+### [Personalized Redirection][Personalized Redirection]
+> A service to provide a customized URL based on the identity of the user.
+
+
+- ##### What it does:
+This will provide a personalized redirect url for a user specified in a CSV file on the classpath.
+- ##### What we use it for:
+ - [National Survey of Student Engagement](https://my.wisc.edu/web/apps/details/nsse "Personalized Link Survey Widget")
+
+
+---
+### [LTI Proxy][LTI Proxy]
+> A configurable service to sign LTI parameters are return form data for your application
+
+
+- ##### What it does:
+Configures a form post url for authenicating to a remote LTI service. The configured URL can be returned to the user, or the user can be redirected by the microservice.
+- ##### What we use it for:
+ - [Blackboard Ultra](https://test.my.wisc.edu/web/apps/details/blackboard-ultra-launcher "Blackboard Launcher Widget")
+
+
+---
+### [RSS to JSON][RSS to JSON]
+> Microservice for converting RSS feeds to JSON.
+
+  [Documentation](https://uw-madison-doit.github.io/rssToJson/)
+
+
+- ##### What it does:
+This takes an external xml RSS feed url, and returns the contents of that url formatted in JSON. Only works on valid RSS feeds.
+- ##### What we use it for:
+ - [RSS Feed Widget Type](https://my.wisc.edu/web/apps/details/doit-scheduled-outages "DoIT Scheduled Outages")
+
+
+---
+### [Widget Creator][Widget Creator]
+> Web-based tool supporting developing widgets for uPortal-home.
+
+
+- ##### What it does:
+This full uPortal app helps users mock out the look and functionality of uPortal-home widgets in the browser.
+- ##### What we use it for:
+ - [Creating Widgets!](https://test.my.wisc.edu/widget-creator/ "MyUW Widget Creator")
+
+
+---
+## Issues to keep in mind when using Microservices
+
+- #### Versions and Regressions
+ - You lose ability to easily know who depends on the microservice
+ - Backwards compatibility is key
+ - Don&#39;t get attached to an implementation
+  - often it&#39;s better to write a whole new microservice than to change the API
+of an existing microservice.
+- #### How many Microservices does it take to screw in a light bulb?
+ - Clean layers of abstraction are essential
+ - Shouldn&#39;t need to pull down 12 microservices to work on one thing.
+- #### Microservices for the sake of Microservices
+ - Keep in mind the problem you&#39;re trying to solve.
+ - [Insert Horror Story Here](# "AQCU")
+
+
+---
+## Related
+
+- #### [Docker][Docker]
+- #### [Kubernetes][Kubernetes]
+> Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
+- #### [Strangle Vine][Strangler Vine]?
+
+
+---
+## Discussion
+
+- How do you see microservices evolving the way you work with uPortal?
+
+<!-- MyUW Github Repositories -->
+<!-- External Links -->
+<!-- Images -->
+<!-- Examples -->
+<!-- Usages -->
+
+		</textarea>
+		<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+		<script>
+			var slideshow = remark.create();
+		</script>
+		<script></script>
+	</body>
+</html>

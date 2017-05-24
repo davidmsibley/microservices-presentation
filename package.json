@@ -1,0 +1,25 @@
+{
+  "name": "microservices-presentation",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "package": "markdown-to-slides -d microservices.md -o slides.html --style slides.css",
+    "present": "live-server slides.html",
+    "dev": "onchange microservices.md -i -- npm run package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidmsibley/microservices-presentation.git"
+  },
+  "author": "David M Sibley <sibley@wisc.edu>",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/davidmsibley/microservices-presentation/issues"
+  },
+  "homepage": "https://github.com/davidmsibley/microservices-presentation#readme",
+  "devDependencies": {
+    "live-server": "^1.2.0",
+    "markdown-to-slides": "^1.0.5",
+    "onchange": "^3.2.1"
+  }
+}
