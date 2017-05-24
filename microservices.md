@@ -3,10 +3,10 @@
 ## Problems
 * [Monolithic backend][Example: uPortal] that you don't completely control.
   * Sometimes that can be [social][Example: Dev List] and sometimes that can be [technical][Example: Pull Request].
-  * Want to avoid forking:
+  * Want to avoid [forking][Example: MyUW uPortal]:
     * Forks get out of date, and become [productivity sinks][Example: Contribute Back to Master].
 * [Multi-tenant system][Example: MyUW Apps] applies stress to the [All-Or-Nothing][Example: Build Ear] architecture.
-  * One bad (or [inattentive][Example: Missing Tag]) actor can ruin it for everyone.
+  * One bad (or inattentive) actor can ruin it for everyone.
 
 ## What are Microservices?
 * ### tl;dr: [Wikipedia][Microservices on Wikipedia]
@@ -123,9 +123,12 @@
   This also passes through user details, allowing for personalized proxying.
 
 * ##### What we use it for:
-  * [Wiscard API Call][Usage: Proxy Wiscard]
-  * [Directory Search][Usage: Proxy Directory Search]
-  * [Scholarship Lookup][Usage: Proxy Scholarship]
+  * Wiscard
+    * [Wiscard API Call][Usage: Proxy Wiscard]
+    * [Wiscard Widget][Usage: Proxy Wiscard Example]
+  * Directory
+    * [Directory API Call][Usage: Proxy Directory Search]
+    * [MyUW Search][Usage: Proxy Directory Example]
 
 ---
 ### [Personalized Redirection][Personalized Redirection]
@@ -182,7 +185,7 @@
   * Shouldn't need to pull down 12 microservices to work on one thing.
 * #### Microservices for the sake of Microservices
   * Keep in mind the problem you're trying to solve.
-  * [Insert Horror Story Here][TODO]
+  * [Insert Horror Story Here][Example: AQCU]
 
 ## Related
 * #### [Docker][Docker]
@@ -219,29 +222,28 @@
 [Micro Deployment]: https://martinfowler.com/articles/microservices/images/micro-deployment.png (Micro Deployment)
 
 <!-- Examples -->
-[Example: uPortal]: # ()
-[Example: Dev List]: # ()
-[Example: Pull Request]: # ()
-[Example: Contribute Back to Master]: # ()
-[Example: MyUW Apps]: # ()
-[Example: Build Ear]: # ()
-[Example: Missing Tag]: # ()
-[Example: uPortal 5]: # ()
-[Example: Gatekeeping]: # ()
-[Example: Apereo Incubation]: # ()
+[Example: uPortal]: https://github.com/Jasig/uPortal (uPortal Github Page)
+[Example: MyUW uPortal]: https://git.doit.wisc.edu/myuw/uPortal (MyUW uPortal GitLab Page)
+[Example: Dev List]: https://groups.google.com/a/apereo.org/forum/#!forum/uportal-dev (uPortal Developers Email List)
+[Example: Pull Request]: https://github.com/Jasig/uPortal/pull/883#issuecomment-301067785 (Default Behavior Breaking Pull Request)
+[Example: Contribute Back to Master]: https://jira.doit.wisc.edu/jira/browse/MUMUP-2929 (Take something that works and put it over there)
+[Example: MyUW Apps]: https://my.wisc.edu/web/apps (There's a lot of them)
+[Example: Build Ear]: https://tools.my.wisc.edu/jenkins/job/docker-activate-test/lastFailedBuild/ (whoops.)
+[Example: uPortal 5]: https://jasig.github.io/uPortal/ (uPortal Documentation)
+[Example: Gatekeeping]: https://git.doit.wisc.edu/myuw-overlay/CampusCourseGuidePortlet/merge_requests/20 (But who watches the Watchmen?)
+[Example: Apereo Incubation]: https://www.apereo.org/incubation (The Warm and Fuzzies)
+[Example: AQCU]: # (AQCU)
 
 <!-- Usages -->
-[Usage: KV Features]: # ()
-[Usage: KV Notifications]: # ()
-[Usage: KV Announcements]: # ()
-[Usage: KV Widget User Prefs]: # ()
-[Usage: Proxy Wiscard]: # ()
-[Usage: Proxy Directory Search]: # ()
-[Usage: Proxy Scholarship]: # ()
-[Usage: Redirect NSSE]: # ()
-[Usage: LTI Blackboard Ultra]: # ()
-[Usage: RSS Feed Widget Type]: # ()
-[Usage: Widget Creator]: # ()
-
-<!-- TODO Marker -->
-[TODO]: # (Elaborate on this!)
+[Usage: KV Features]: https://github.com/UW-Madison-DoIT/uw-frame/tree/master/uw-frame-components/portal/features (Features Module Github)
+[Usage: KV Notifications]: https://my.wisc.edu/web/notifications (MyUW Notifications)
+[Usage: KV Announcements]: https://github.com/UW-Madison-DoIT/uw-frame/blob/master/uw-frame-components/portal/features/services.js#L83 (Announcements Usage Source Code)
+[Usage: KV Widget User Prefs]: https://github.com/UW-Madison-DoIT/uw-frame/blob/master/uw-frame-components/portal/widgets/controllers.js#L408 (Weather Widget User Preferences)
+[Usage: Proxy Wiscard]: https://my.wisc.edu/web/api/proxy/wiscard (Wiscard API Call)
+[Usage: Proxy Wiscard Example]: https://my.wisc.edu/web/apps/details/wiscard-balance (Wiscard Widget)
+[Usage: Proxy Directory Search]: https://my.wisc.edu/web/api/proxy/wiscdirectory/?name=sibley (Oh hey, that's me!)
+[Usage: Proxy Directory Example]: https://my.wisc.edu/web/apps/search/sibley (I've never met those other people)
+[Usage: Redirect NSSE]: https://my.wisc.edu/web/apps/details/nsse (Personalized Link Survey Widget)
+[Usage: LTI Blackboard Ultra]: https://test.my.wisc.edu/web/apps/details/blackboard-ultra-launcher (Blackboard Launcher Widget)
+[Usage: RSS Feed Widget Type]: https://my.wisc.edu/web/apps/details/doit-scheduled-outages (DoIT Scheduled Outages)
+[Usage: Widget Creator]: https://test.my.wisc.edu/widget-creator/ (MyUW Widget Creator)
